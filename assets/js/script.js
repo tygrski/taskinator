@@ -96,17 +96,17 @@ return actionContainerEl;
 
 var taskButtonHandler = function(event)  {
   console.log(event.target);
-}
+
+  if (event.target.matches(".delete.btn")) {
+    console.log("you clicked a delete button!")
+//  get the element's task id
+var taskID = event.target.getAttribute("data-task-id");
+  }
+};
+
 pageContentEl.addEventListener("click", taskButtonHandler)
 
-var deleteTask = function(taskId)  {
-  console.log(taskId);
-}
 
-if(event.target.matches(".delete-btn")) {
-  var taskId = event.target.getAttribute("data-task-id");
-  deleteTask(taskId);
-}
 
-formEl.addEventListener("submit", taskFormHandler)
+formEl.addEventListener("submit", taskFormHandler);
 
