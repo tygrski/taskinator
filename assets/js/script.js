@@ -94,18 +94,24 @@ actionContainerEl.appendChild(statusSelectEl);
 return actionContainerEl;
 }
 
-var taskButtonHandler = function(event)  {
+var taskButtonHandler = function(event) {
   console.log(event.target);
 
-  if (event.target.matches(".delete.btn")) {
-    console.log("you clicked a delete button!")
-//  get the element's task id
-var taskID = event.target.getAttribute("data-task-id");
+  if (event.target.matches(".delete-btn")) {
+    // get the element's task id
+    var taskId = event.target.getAttribute("data-task-id");
+    console.log(taskId);
   }
 };
 
-pageContentEl.addEventListener("click", taskButtonHandler)
+var deleteTask = function(taskId) {
+  if (event.target.matches(".delete-btn")) {
+    var taskId = event.target.getAttribute("data-task-id");
+    deleteTask(taskId);
+  }
+}
 
+pageContentEl.addEventListener("click", taskButtonHandler);
 
 
 formEl.addEventListener("submit", taskFormHandler);
